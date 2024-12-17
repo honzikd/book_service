@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class BookServiceControllerTest @Autowired constructor(
+internal class BookServiceControllerTest @Autowired constructor(
     private val bookService: BookService,
 ) {
 
@@ -43,7 +43,7 @@ class BookServiceControllerTest @Autowired constructor(
         val updated = Book("abcd", "newFirst", "newLast", "newTitle")
         every { bookRepository.getAll() } returns mutableListOf(original)
         every { bookRepository.update(any(), any()) } returns updated
-        val result = bookService.update(updated, "abcd")
+        val result = bookService.update(updated)
         assertEquals(updated.id, result.id)
         assertEquals(updated.title, result.title)
     }

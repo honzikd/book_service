@@ -1,0 +1,1 @@
+Just a testing project to demonstrate some basics of AspectJ
